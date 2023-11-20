@@ -2,22 +2,28 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import SideBar from '../components/SideBar';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
+const Hom = ({ isLoggedIn, setLoggedIn }) => {
+  const [show, setShow] = useState(false);
 
-const Hom = ()=>{
-   return (
-    <Container>
-        <Row className="flex justify-content-between">
-        <p></p>
-        <Col xs={6} md={4}>
-          <Image src="https://i.giphy.com/media/ZHLy7N0tUdtHxqfZpA/giphy.webp" fluid rounded />
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Row>
+        <Col xs={4} md={2}></Col>
+        <Col xs={4} md={8} className="text-center">
+          <Image
+            src="https://i.giphy.com/media/ZHLy7N0tUdtHxqfZpA/giphy.webp"
+            fluid
+            rounded
+            width="50%"
+          />
         </Col>
-        <Button />
-        </Row>
-    </Container>
-   )
-}
+      </Row>
+    </>
+  );
+};
 export default Hom;
