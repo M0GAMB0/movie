@@ -21,6 +21,8 @@ const SideBar = ({ isLoggedIn, setLoggedIn }) => {
 
   const handleClick = (key, menu) => {
     if (menu == 'Home') menu = '';
+    menu=menu.replace( /\s+/g , '');
+    menu=menu.toLowerCase();
     setActive(key);
     history(`/${menu}`);
   };

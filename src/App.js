@@ -35,6 +35,14 @@ const App = () => {
       language: 'Japanese',
       country: 'Japan',
     },
+    {
+      movieName: 'Ghost',
+      year: 2023,
+      genres: 'Thriller',
+      language: 'Kannada',
+      country: 'India',
+    },
+    
   ];
   return (
     <BrowserRouter>
@@ -43,10 +51,10 @@ const App = () => {
           <SideBar isLoggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           <Routes>
             <Route path="/" element={<Hom isLoggedIn={loggedIn} />} />
-            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies" element={<Movies movies={movies}/>} />
             <Route path="*" element={<NonLoginPage />} />
-            {loggedIn && <Route path="/genres" element={<Genres />} />}
-            {loggedIn && <Route path="/addMovie" element={<AddMovie />} />}
+            {loggedIn && <Route path="/genres" element={<Genres movies={movies}/>} />}
+            {loggedIn && <Route path="/addMovies" element={<AddMovie movies={movies}/>} />}
           </Routes>
         </Container>
       </div>
