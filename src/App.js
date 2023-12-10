@@ -42,21 +42,30 @@ const App = () => {
       language: 'Kannada',
       country: 'India',
     },
-    
   ];
   return (
     <BrowserRouter>
       <div className="body">
-        <Container>
-          <SideBar isLoggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-          <Routes>
-            <Route path="/" element={<Hom isLoggedIn={loggedIn} />} />
-            <Route path="/movies" element={<Movies movies={movies}/>} />
-            <Route path="*" element={<NonLoginPage />} />
-            {loggedIn && <Route path="/genres" element={<Genres movies={movies}/>} />}
-            {loggedIn && <Route path="/addMovies" element={<AddMovie movies={movies}/>} />}
-          </Routes>
-        </Container>
+        <div class="snow_wrap">
+          <div class="snow"></div>
+          <Container class="sai">
+            <SideBar isLoggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Routes>
+              <Route path="/" element={<Hom isLoggedIn={loggedIn} />} />
+              <Route path="/movies" element={<Movies movies={movies} />} />
+              <Route path="*" element={<NonLoginPage />} />
+              {loggedIn && (
+                <Route path="/genres" element={<Genres movies={movies} />} />
+              )}
+              {loggedIn && (
+                <Route
+                  path="/addMovies"
+                  element={<AddMovie movies={movies} />}
+                />
+              )}
+            </Routes>
+          </Container>
+        </div>
       </div>
     </BrowserRouter>
   );
